@@ -3,7 +3,7 @@ const { addDynamicIconSelectors } = require('@iconify/tailwind');
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./frontend/**/*.{html,js}"
+    "./static/**/*.{html,js}"
   ],
   theme: {
     extend: {},
