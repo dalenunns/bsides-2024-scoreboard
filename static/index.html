@@ -1,11 +1,10 @@
 <meta http-equiv="refresh" content="1800">
 <script src="https://unpkg.com/htmx.org@2.0.3" integrity="sha384-0895/pl2MU10Hqc6jd4RvrthNlDiE9U1tWmX7WRESftEDRosgxNsQG/Ze9YMRzHq" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/htmx.org/dist/ext/sse.js"></script>
+<script src="https://unpkg.com/htmx-ext-sse@2.2.2/sse.js"></script>
 <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script> 
 
-<link rel="stylesheet" media="all" href="/static/style.css" />
+<link rel="stylesheet" media="all" href="/static/site.css" />
 
-<link rel="stylesheet" media="all" href="/static/style.css" />
 <script>
     function removeAllChildren(elm) {
         while (elm.hasChildNodes()) {
@@ -14,5 +13,19 @@
     }
 </script>
 <div class="scanlines">
-
+    
+    <div class="float">        
+    </div>
+    
+    <div hx-ext="sse" sse-connect="/listen">
+        <div id="scoreboard" sse-swap="iframe-scoreboard">            
+            <iframe id="scoreboard_frame" src="https://scavhunt.bsidescapetown.co.za/scoreboard?fullscreen=1" title="BSides Cape Town - Scavenger Hunt" width="100%" height="100%"></iframe>
+        </div>
+        <div id="message" sse-swap="message">
+        </div>
+        <div id="display-png" sse-swap="display">
+        </div>
+        <div id="schedule-container" sse-swap="schedule">
+        </div>
+    </div>   
 </div>

@@ -8,6 +8,9 @@ module.exports = {
   theme: {
     extend: {},
   },
+  daisyui: {
+    themes: ["synthwave"],
+  },
   plugins: [
     // Inconify Plugin
     addDynamicIconSelectors(),

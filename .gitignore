@@ -3,6 +3,7 @@
 
 ### Node ###
 # Logs
+cache/
 logs
 *.log
 npm-debug.log*
