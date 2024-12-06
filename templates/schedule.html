@@ -1,37 +1,66 @@
-<div class="schedule-talks grid gap-4 grid-cols-2 place-content-stretch">
+<div class="schedule-talks grid grid-cols-2 gap-4 flex place-content-stretch p-4 w-full">
 
-        <div class="card indicator bg-base-300 rounded-box" style="display:{{ schedule["Track 1"]["NOW"]["Display"]}}">
-            <div class="indicator-item badge badge-secondary">NOW</div>
-            <div class="card-body">
-                <h4 class="card-title">{{ schedule["Track 1"]["NOW"]["Title"]}}</h4>
-                <p>{{ schedule["Track 1"]["NOW"]["Speaker"]}}</p>
-                <p>{{ schedule["Track 1"]["NOW"]["StartTime"]}} - {{ schedule["Track 1"]["NOW"]["Duration"]}}min - <b>Track 1</b></p>
+        <div class="indicator rounded-box w-full bg-base-300" 
+           style="display:{{ schedule["Track 1"]["NOW"]["Display"]}}">
+            <div class="indicator-item badge badge-primary mr-4">NOW</div>
+            <div class="flex p-4 content-start prose  h-36">
+                <div class="w-28 border-r-4 flex-none">
+                    <h3 class="mt-0"><b>Track 1</b></h3>
+                    <h3 class="mt-0">{{ schedule["Track 1"]["NOW"]["StartTime"]}}</h3> 
+                    {{ schedule["Track 1"]["NOW"]["Duration"]}}min
+                </div>
+                <div class="flex-1 pl-4">
+                    <h3 class="mt-0">{{ schedule["Track 1"]["NOW"]["Title"]}}</h3>
+                    {{ schedule["Track 1"]["NOW"]["Speaker"]}}
+                </div>
             </div>
         </div>
-        <div class="card indicator bg-base-300 rounded-box" style="display:{{ schedule["Track 2"]["NOW"]["Display"]}}">
-            <div class="indicator-item badge badge-secondary">NOW</div>
-            <div class="card-body">
-                <h4 class="card-title">{{ schedule["Track 2"]["NOW"]["Title"]}}</h4>
-                <p>{{ schedule["Track 2"]["NOW"]["Speaker"]}}</p>
-                <p>{{ schedule["Track 2"]["NOW"]["StartTime"]}} - {{ schedule["Track 2"]["NOW"]["Duration"]}}min - <b>Track 2</b></p>
+        <div class="indicator rounded-box w-full bg-base-300" 
+        style="display:{{ schedule["Track 2"]["NOW"]["Display"]}}">
+         <div class="indicator-item badge badge-primary mr-4">NOW</div>
+         <div class="flex p-4 content-start prose h-36">
+             <div class="w-28 border-r-4 flex-none">
+                 <h3 class="mt-0"><b>Track 2</b></h3>
+                 <h3 class="mt-0">{{ schedule["Track 2"]["NOW"]["StartTime"]}}</h3> 
+                 {{ schedule["Track 2"]["NOW"]["Duration"]}}min
+             </div>
+             <div class="flex-1 pl-4">
+                 <h3 class="mt-0">{{ schedule["Track 2"]["NOW"]["Title"]}}</h3>
+                 {{ schedule["Track 2"]["NOW"]["Speaker"]}}
+             </div>
+         </div>
+     </div>
+
+        <div class="indicator rounded-box w-full bg-base-300" 
+           style="display:{{ schedule["Track 1"]["NEXT"]["Display"]}}">
+            <div class="indicator-item badge badge-secondary mr-4">NEXT</div>
+            <div class="flex p-4 content-start prose  h-36">
+                <div class="w-28 border-r-4 flex-none">
+                    <h3 class="mt-0"><b>Track 1</b></h3>
+                    <h3 class="mt-0">{{ schedule["Track 1"]["NEXT"]["StartTime"]}}</h3> 
+                    {{ schedule["Track 1"]["NEXT"]["Duration"]}}min
+                </div>
+                <div class="flex-1 pl-4">
+                    <h3 class="mt-0">{{ schedule["Track 1"]["NEXT"]["Title"]}}</h3>
+                    {{ schedule["Track 1"]["NEXT"]["Speaker"]}}
+                </div>
             </div>
         </div>
- 
 
-    <div class="card indicator bg-base-300 rounded-box" style="display:{{ schedule["Track 1"]["NEXT"]["Display"]}}">
-        <div class="indicator-item badge badge-secondary">NEXT</div>
-        <div class="card-body">
-            <h4 class="card-title">{{ schedule["Track 1"]["NEXT"]["Title"]}}</h4>
-            <p>{{ schedule["Track 1"]["NEXT"]["Speaker"]}}</p>
-            <p>{{ schedule["Track 1"]["NEXT"]["StartTime"]}} - {{ schedule["Track 1"]["NEXT"]["Duration"]}}min - <b>Track 1</b></p>
-        </div>
-    </div>
-    <div class="card indicator bg-base-300 rounded-box" style="display:{{ schedule["Track 2"]["NEXT"]["Display"]}}">
-        <div class="indicator-item badge badge-secondary">NEXT</div>
-        <div class="card-body">
-            <h4 class="card-title">{{ schedule["Track 2"]["NEXT"]["Title"]}}</h4>
-            <p>{{ schedule["Track 2"]["NEXT"]["Speaker"]}}</p>
-            <p>{{ schedule["Track 2"]["NEXT"]["StartTime"]}} - {{ schedule["Track 2"]["NEXT"]["Duration"]}}min - <b>Track 2</b></p>
+        <div class="indicator rounded-box w-full bg-base-300" 
+           style="display:{{ schedule["Track 2"]["NEXT"]["Display"]}}">
+            <div class="indicator-item badge badge-secondary mr-4">NEXT</div>
+            <div class="flex p-4 content-start prose h-36">
+                <div class="w-28 border-r-4 flex-none">
+                    <h3 class="mt-0"><b>Track 2</b></h3>
+                    <h3 class="mt-0">{{ schedule["Track 2"]["NEXT"]["StartTime"]}}</h3> 
+                    {{ schedule["Track 2"]["NEXT"]["Duration"]}}min
+                </div>
+                <div class="flex-1 pl-4">
+                    <h3 class="mt-0">{{ schedule["Track 2"]["NEXT"]["Title"]}}</h3>
+                    {{ schedule["Track 2"]["NEXT"]["Speaker"]}}
+                </div>
+            </div>
         </div>
 </div>
 

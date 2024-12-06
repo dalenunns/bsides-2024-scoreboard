@@ -13,6 +13,8 @@ module.exports = {
     themes: ["synthwave"],
   },
   plugins: [
+    // Typography
+    require("@tailwindcss/typography"),
     // Inconify Plugin
     addDynamicIconSelectors(),
     //DaisyUI

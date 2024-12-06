@@ -124,15 +124,15 @@ def scan_track_data(currentTime, track):
 
 
 def fetch_schedule_data():
-    print ("Hello World")
     your_url = 'https://pretalx.com/bsides-cape-town-2024/schedule/export/schedule.json'
     with urllib.request.urlopen(your_url) as url:
         south_africa = timezone('Africa/Johannesburg')
         currentTime = datetime.now(south_africa)
-        currentTime = parser.parse("2023-12-07 5:50:01+02:00")
+        currentTime = parser.parse("2024-12-07 11:50:01+02:00")
         data = json.loads(url.read().decode())
 
         schedule_data = {}      
+        print (currentTime)
 
         for track in data["schedule"]["conference"]["days"][1]["rooms"]:
             nextSession = False    
