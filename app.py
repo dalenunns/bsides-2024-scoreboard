@@ -50,21 +50,27 @@ def update_scoreboard_task():
 
 # ----- Show a Sponsor Image ----- 
 def show_sponsor_task():
-    sponsor_image_idx = cache.get("sponsor_image_idx")
-    if sponsor_image_idx is None:
-        sponsor_image_idx = 0
-    sponsor_image_idx += 1
-    cache.set("sponsor_image_idx", sponsor_image_idx)
-    displayimage(f'/sponsorfetch?{time.time()}', 30)
-
+    if len(os.listdir('static/sponsors/')) > 0:
+        sponsor_image_idx = cache.get("sponsor_image_idx")
+        if sponsor_image_idx is None:
+            sponsor_image_idx = 0
+        sponsor_image_idx += 1
+        cache.set("sponsor_image_idx", sponsor_image_idx)
+        displayimage(f'/sponsorfetch?{time.time()}', 30)
+    else:
+        print ("No Speaker Files found")
+        
 # ----- Show a Speaker Image -----
 def show_speaker_task():
-    speaker_image_idx = cache.get("speaker_image_idx")
-    if speaker_image_idx is None:
-        speaker_image_idx = 0
-    speaker_image_idx += 1
-    cache.set("speaker_image_idx", speaker_image_idx)
-    displayimage(f'/speakerfetch?{time.time()}', 30)
+    if len(os.listdir('static/speakers/')) > 0:
+        speaker_image_idx = cache.get("speaker_image_idx")
+        if speaker_image_idx is None:
+            speaker_image_idx = 0
+        speaker_image_idx += 1
+        cache.set("speaker_image_idx", speaker_image_idx)
+        displayimage(f'/speakerfetch?{time.time()}', 30)
+    else:
+        print ("No Speaker Files found")
 
 # ----- Show Speaker Schedule -----
 def show_schedule_task():
@@ -142,10 +148,6 @@ def displaychedule():
         announcer.announce(msg=msg)
         return {}, 200
     
-@app.route('/scoreboardfetch')
-def scoreboardfetch():    
-    return send_file('static/scoreboard.png')
-
 @app.route('/sponsorfetch')
 def sponsorfetch():
     sponsor_image_idx = cache.get("sponsor_image_idx")
@@ -181,8 +183,8 @@ def listen():
 
 # ------- Scheduled Tasks -------
 sched.add_job(update_scoreboard_task, 'interval', minutes=1)
-# sched.add_job(show_sponsor_task, 'interval', minutes=3)
-# sched.add_job(show_speaker_task, 'interval', minutes=2)
+sched.add_job(show_sponsor_task, 'interval', minutes=3)
+sched.add_job(show_speaker_task, 'interval', minutes=2)
 sched.add_job(show_schedule_task, 'interval', minutes=1)
 
 sched.start()

@@ -128,7 +128,7 @@ def fetch_schedule_data():
     with urllib.request.urlopen(your_url) as url:
         south_africa = timezone('Africa/Johannesburg')
         currentTime = datetime.now(south_africa)
-        currentTime = parser.parse("2024-12-07 11:50:01+02:00")
+        #currentTime = parser.parse("2024-12-07 11:50:01+02:00")
         data = json.loads(url.read().decode())
 
         schedule_data = {}      
