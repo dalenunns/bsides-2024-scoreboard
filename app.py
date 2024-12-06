@@ -6,6 +6,7 @@ import json
 import subprocess
 import time
 import os
+import Pretalix
 from flask import send_file, request 
 from datetime import datetime
 from MessageAnnouncer import MessageAnnouncer
@@ -132,10 +133,13 @@ def displayimage(imagePath, timeout):
 @app.route('/admin/schedule')
 def displaychedule():
     with app.app_context():
-        # schedule_html = flask.render_template('schedule.html', schedule = Pretalix.fetch_schedule_data())
-        # schedule_html = schedule_html.replace('\n', '')
-        # msg = format_sse(data=schedule_html, event='schedule')
-        # announcer.announce(msg=msg)
+        pretalix_schedule = Pretalix.fetch_schedule_data()
+        Pretalix.display_session_data(pretalix_schedule)
+        schedule_html = flask.render_template('schedule.html', schedule = pretalix_schedule)
+        
+        schedule_html = schedule_html.replace('\n', '')
+        msg = format_sse(data=schedule_html, event='schedule')
+        announcer.announce(msg=msg)
         return {}, 200
     
 @app.route('/scoreboardfetch')
@@ -179,7 +183,7 @@ def listen():
 sched.add_job(update_scoreboard_task, 'interval', minutes=1)
 # sched.add_job(show_sponsor_task, 'interval', minutes=3)
 # sched.add_job(show_speaker_task, 'interval', minutes=2)
-# sched.add_job(show_schedule_task, 'interval', minutes=1)
+sched.add_job(show_schedule_task, 'interval', minutes=1)
 
 sched.start()
 

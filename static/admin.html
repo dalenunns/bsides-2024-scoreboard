@@ -9,5 +9,14 @@
 
     <button class="btn btn-outline btn-info" hx-get="admin/test-pattern?state=on">Test-Pattern On</button>
     <button class="btn btn-outline btn-info" hx-get="admin/test-pattern?state=off">Test-Pattern Off</button>
+<br/>
+<div>
+Message: 
+<textarea name="message" type="text"></textarea>
 
+<button class="pure-button" hx-post="admin/message" hx-target="#message_reply" hx-include="[name='message']">
+    Send Message
+</button>
+<div id="message_reply"></div>   
+</div>
     </html>
