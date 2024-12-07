@@ -84,6 +84,11 @@ def show_schedule_task():
 def index():
     return send_file('static/index.html')
 
+@app.route('/pi')
+def pi():
+    return send_file('static/pi.html')
+
+
 @app.route('/admin')
 def control():
     return send_file('static/admin.html')

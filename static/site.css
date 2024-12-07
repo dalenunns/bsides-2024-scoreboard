@@ -2140,7 +2140,7 @@ html{
   right:0;
   z-index: 1200;
   position: absolute;
-  background-image: url("/static/OTV.png");
+  /*    background-image: url("/static/Pi.png");*/
   width: 100px;
   height: 100px;
   background-repeat: no-repeat;
